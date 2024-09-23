@@ -1,4 +1,4 @@
-## WebVoyager: An LLM-Powered Web Agent**
+## WebVoyager: An LLM-Powered Web Agent
 
 WebVoyager is a research project that builds an end-to-end web agent using large language models (LLMs). It leverages LLMs to navigate the internet and retrieve information in response to user queries. This implementation is inspired by the concepts presented in the paper "[WebVoyager: Building an End-to-End Web Agent with Large Multimodal Models](https://arxiv.org/abs/2401.13919)" (citation to be added once available).
 
