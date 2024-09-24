@@ -24,6 +24,7 @@ load_dotenv()
 
 
 class BBox(TypedDict):
+    # bounding box
     x: float
     y: float
     text: str
@@ -77,8 +78,9 @@ async def type_text(state: AgentState):
     x, y = bbox["x"], bbox["y"]
     text_content = type_args[1]
     await page.mouse.click(x, y)
-    # Check if MacOS
-    select_all = "Meta+A" if platform.system() == "Darwin" else "Control+A"
+    select_all = (
+        "Meta+A" if platform.system() == "Darwin" else "Control+A"
+    )  # macos check
     await page.keyboard.press(select_all)
     await page.keyboard.press("Backspace")
     await page.keyboard.type(text_content)
@@ -198,7 +200,8 @@ def parse(text: str) -> dict:
 
 
 prompt = hub.pull("wfh/web-voyager")
-# SYSTEM_PROMPT = """Imagine you are a robot browsing the web, just like humans. Now you need to complete a task. In each iteration, you will receive an Observation that includes a screenshot of a webpage and some texts. This screenshot will
+# SYSTEM_PROMPT = """Imagine you are a robot browsing the web, just like humans. Now you need to complete a task.
+# In each iteration, you will receive an Observation that includes a screenshot of a webpage and some texts. This screenshot will
 # feature Numerical Labels placed in the TOP LEFT corner of each Web Element. Carefully analyze the visual
 # information to identify the Numerical Label corresponding to the Web Element that requires interaction, then follow
 # the guidelines and choose one of the following actions:
